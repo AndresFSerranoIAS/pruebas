@@ -1,11 +1,12 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import './styles/SaveEmployee.css';
+import './styles/ListEmployees.css';
 
-export interface SaveEmployeeInterface {
-	onGoBack: () => void;}
+export interface ListEmployeesInterface {
+  onGoBack: () => void;
+}
 
-const SaveEmployee: React.FC<SaveEmployeeInterface> = ({ onGoBack }) => {
+const ListEmployees: React.FC<ListEmployeesInterface> = ({ onGoBack }) => {
   const history = useHistory();
 
   const handleBack = () => {
@@ -14,11 +15,11 @@ const SaveEmployee: React.FC<SaveEmployeeInterface> = ({ onGoBack }) => {
   };
 
   return (
-    <div className='saveemployee'>
-      <h1>Save Employee</h1>
+    <div className='listemployees'>
+      <h1>List of Employees</h1>
       <button onClick={handleBack}>Back</button>
     </div>
   );
 };
 
-export default SaveEmployee;
+export default ListEmployees;
