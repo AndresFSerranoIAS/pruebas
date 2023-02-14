@@ -1,31 +1,32 @@
 import React from 'react';
-import { Link, Route, Switch, useRouteMatch,
-	useParams} from 'react-router-dom';
+import { Link, Route, Switch, useLocation } from 'react-router-dom';
 import { SaveEmployee } from '../../components/entitycomponents/employee/SaveEmployee';
 import './styles/Employee.css';
-export interface EmployeeInterface { }
 
-const Employee: React.FC<EmployeeInterface> = () => {
-	let match = useRouteMatch();
-	return <React.Fragment>
+const Employee: React.FC = () => {
 
-		<ul>
-			<li>
-				<Link to="new">Save</Link>
-			</li>
-			<li>
-				<Link to="get">Get Employees</Link>
-			</li>
-		</ul>
-		<Switch>
-			<Route path="new">
-				<SaveEmployee/>
-			</Route>
-			<Route path="get">
-				<SaveEmployee/>
-			</Route>
-		</Switch>
-	</React.Fragment>;
+	const { pathname } = useLocation();
+	return (
+		<React.Fragment>
+			<ul>
+				<li>
+					<Link to="/employee/new">Save</Link>
+				</li>
+				<li>
+					<Link to="/employee/get">Get Employees</Link>
+					{pathname}
+				</li>
+			</ul>
+			<Switch>
+				<Route path="/employee/new">
+					<SaveEmployee />
+				</Route>
+				<Route path="/employee/get">
+					<h2>Hola</h2>
+				</Route>
+			</Switch>
+		</React.Fragment>
+	);
 };
 
 export default Employee;
